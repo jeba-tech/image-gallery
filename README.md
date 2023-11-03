@@ -1,3 +1,22 @@
+## Project Features:
+
+* Implemented a responsive grid layout and one image is displayed as the feature image.
+* Enabled drag-and-drop and reordering functionality for images.
+* Visual indicators of selected images using checkbox and highlited the image.
+* Multiple images for deletion has been implemented.
+* Implemented featured image sorting.The first image (from left to right) is considered the default feature image.
+
+
+## Installation Instructions:
+
+step-1: git clone https://github.com/jeba-tech/image-gallery.git
+step-2: cd project_folder
+step-3: npm install
+step-4: npm start
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
