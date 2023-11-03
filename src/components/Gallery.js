@@ -22,7 +22,7 @@ const Gallery = () => {
       const [images, setImages] = useState(gallery);
   const [selectedImages, setSelectedImages] = useState([]);
   const [featureImage, setFeatureImage] = useState(images[0]);
-
+// For image selection
   const handleCheckboxChange = (index) => {
       const isSelected = selectedImages.includes(index);
       let newSelectedImages;
@@ -38,7 +38,7 @@ const Gallery = () => {
 
     const selectedFilesCount = selectedImages.length;
 
-
+// For image deletion
     const handleDeleteImages = () => {
       const updatedImages = images.filter((_, index) => !selectedImages.includes(index));
       setImages(updatedImages);
