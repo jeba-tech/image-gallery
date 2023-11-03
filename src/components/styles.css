@@ -1,19 +1,20 @@
 /* styles.css */
+/* Displaying images in a grid layout */
 .gallery-container {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr 307px; /* Four columns for the grid layout */
       gap: 30px;
       padding: 20px;
-    
+      transition: all 0.3s ease-in-out; /* Transition for grid layout changes */
      
     }
-
+/* For individual gallery images */
     .gallery-image {
       position: relative;
       overflow: hidden;
       cursor: pointer;
       
-    
+      transition: all 0.3s ease-in-out; /* Transition for image size and border changes */
       grid-column: span 1; /* Each image occupies one column */
       grid-row: span 1; /* Each image occupies one row */
     }
@@ -22,7 +23,30 @@
       width: 99%;
       
       object-fit: cover;
-    
+      transition: all 0.6s ease-in-out; /* Transition for image size changes */
       border: lightslategrey 1px solid;
       border-radius: 8px;
+    }
+
+    .gallery-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0); /* Transparent overlay */
+      z-index: 1;
+      transition: all 0.4s ease-in-out; /* Slower transition */
+    }
+    
+    .gallery-image:hover::before {
+      background-color: rgba(0, 0, 0, 0.5); /* Dark overlay color with 50% opacity */
+    }
+    /* Checkbox input inside the gallery image */
+    .gallery-image input[type="checkbox"] {
+      position: absolute;
+      top: 10px; 
+      left: 10px; 
+      z-index: 2; /* Checkbox above the image */
     }

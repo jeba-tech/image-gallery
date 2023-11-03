@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+// Array of image objects
 const gallery = [
       { id: "image-1", url: "/images/image-1.webp" },
       { id: "image-2", url: "/images/image-2.webp" },
@@ -15,9 +16,23 @@ const gallery = [
     
      
     ]
+
 const Gallery = () => {
       const [images, setImages] = useState(gallery);
+  const [selectedImages, setSelectedImages] = useState([]);
 
+  const handleCheckboxChange = (index) => {
+      const isSelected = selectedImages.includes(index);
+      let newSelectedImages;
+  
+      if (isSelected) {
+        newSelectedImages = selectedImages.filter((selectedIndex) => selectedIndex !== index);
+      } else {
+        newSelectedImages = [...selectedImages, index];
+      }
+  
+      setSelectedImages(newSelectedImages);
+    };
       return (
             <div className="gallery-container">
                 {images.map((image, index) => (
@@ -27,7 +42,12 @@ const Gallery = () => {
                   className= "gallery-image"
                   >
                     <img src={image.url} alt={`Image Index: ${index}`} />
-                    
+                      {/* For image selection */}
+                    <input
+                        type="checkbox"
+                        checked={selectedImages.includes(index)}
+                        onChange={() => handleCheckboxChange(index)}
+                      />
                   </div>
             
             
