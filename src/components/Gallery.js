@@ -33,8 +33,13 @@ const Gallery = () => {
   
       setSelectedImages(newSelectedImages);
     };
+
+    const selectedFilesCount = selectedImages.length;
       return (
-            <div className="gallery-container">
+           <div>
+
+<div style={{color:"lightslategrey", fontSize:"20px"}}><strong>Total Selected Files: </strong>{selectedFilesCount}</div>
+<div className="gallery-container">
                 {images.map((image, index) => (
            
                
@@ -53,6 +58,8 @@ const Gallery = () => {
             
             ))}    
             </div>
+           </div> 
+           
       );
 };
 
