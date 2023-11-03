@@ -35,10 +35,19 @@ const Gallery = () => {
     };
 
     const selectedFilesCount = selectedImages.length;
+
+
+    const handleDeleteImages = () => {
+      const updatedImages = images.filter((_, index) => !selectedImages.includes(index));
+      setImages(updatedImages);
+      setSelectedImages([]);
+    };
       return (
            <div>
-
-<div style={{color:"lightslategrey", fontSize:"20px"}}><strong>Total Selected Files: </strong>{selectedFilesCount}</div>
+<div style={{display:'flex' ,alignItems:'center',justifyContent:'space-evenly', margin:'5px' }}>
+      <div style={{color:"lightslategrey", fontSize:"20px"}}><strong>Total Selected Files: </strong>{selectedFilesCount}</div>
+    <button className="delete-button"  onClick={handleDeleteImages}>Delete</button>
+      </div>
 <div className="gallery-container">
                 {images.map((image, index) => (
            

@@ -50,3 +50,20 @@
       left: 10px; 
       z-index: 2; /* Checkbox above the image */
     }
+
+
+    .delete-button{
+      color: white;
+      background-color: rgb(148, 0, 0);
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+    }
+    .delete-button:hover{
+      color: rgb(255, 255, 255);
+      background-color: rgb(78, 86, 35);
+     
+    
+    
+      cursor: pointer;
+    }
