@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 // Array of image objects
 const gallery = [
       { id: "image-1", url: "/images/image-1.webp" },
@@ -42,17 +43,44 @@ const Gallery = () => {
       setImages(updatedImages);
       setSelectedImages([]);
     };
+
+    // handle drag-and-drop reordering of images
+  const handleDragAndDrop = (result) => {
+      if (!result.destination) {
+        return; // Dropped outside the list
+      }
+  
+      // Reorder the images based on drag-and-drop
+      const reorderedImages = Array.from(images);
+      const [reorderedItem] = reorderedImages.splice(result.source.index, 1);
+      reorderedImages.splice(result.destination.index, 0, reorderedItem);
+  
+      // Update state with reordered images 
+      setImages(reorderedImages);
+      
+    };
       return (
            <div>
 <div style={{display:'flex' ,alignItems:'center',justifyContent:'space-evenly', margin:'5px' }}>
       <div style={{color:"lightslategrey", fontSize:"20px"}}><strong>Total Selected Files: </strong>{selectedFilesCount}</div>
     <button className="delete-button"  onClick={handleDeleteImages}>Delete</button>
       </div>
-<div className="gallery-container">
+
+      {/* Drag-and-drop context for handling drag events */}         
+    <DragDropContext onDragEnd={handleDragAndDrop}>
+         {/* Droppable area for images */}
+      <Droppable droppableId="images">
+        {(provided) => (
+<div className="gallery-container" ref={provided.innerRef} {...provided.droppableProps}>
                 {images.map((image, index) => (
-           
-               
+           // Draggable component representing an image
+           <Draggable key={image.id} draggableId={image.id.toString()} index={index}>
+           {(provided) => (
+             // Image container with drag handle
                   <div
+                  ref={provided.innerRef}
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
                   className= "gallery-image"
                   >
                     <img src={image.url} alt={`Image Index: ${index}`} />
@@ -63,10 +91,15 @@ const Gallery = () => {
                         onChange={() => handleCheckboxChange(index)}
                       />
                   </div>
-            
-            
-            ))}    
-            </div>
+            )}
+            </Draggable>
+          ))}
+            {/* Placeholder for dropped items */}
+          {provided.placeholder}
+        </div>
+      )}
+    </Droppable>
+  </DragDropContext>
            </div> 
            
       );
