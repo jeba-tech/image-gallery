@@ -1,0 +1,28 @@
+/* styles.css */
+.gallery-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 307px; /* Four columns for the grid layout */
+      gap: 30px;
+      padding: 20px;
+    
+     
+    }
+
+    .gallery-image {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      
+    
+      grid-column: span 1; /* Each image occupies one column */
+      grid-row: span 1; /* Each image occupies one row */
+    }
+
+    .gallery-image img {
+      width: 99%;
+      
+      object-fit: cover;
+    
+      border: lightslategrey 1px solid;
+      border-radius: 8px;
+    }
