@@ -1,3 +1,10 @@
+## Project Documentation
+
+## Live Site: \
+https://responsive-image-gallery-website.netlify.app/
+
+
+
 ## Project Features:
 
 * Implemented a responsive grid layout and one image is displayed as the feature image.
@@ -9,9 +16,9 @@
 
 ## Installation Instructions:
 
-step-1: git clone https://github.com/jeba-tech/image-gallery.git
-step-2: cd project_folder
-step-3: npm install
+step-1: git clone https://github.com/jeba-tech/image-gallery.git \
+step-2: cd project_folder \
+step-3: npm install \
 step-4: npm start
 
 
