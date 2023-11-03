@@ -21,6 +21,7 @@ const gallery = [
 const Gallery = () => {
       const [images, setImages] = useState(gallery);
   const [selectedImages, setSelectedImages] = useState([]);
+  const [featureImage, setFeatureImage] = useState(images[0]);
 
   const handleCheckboxChange = (index) => {
       const isSelected = selectedImages.includes(index);
@@ -57,7 +58,7 @@ const Gallery = () => {
   
       // Update state with reordered images 
       setImages(reorderedImages);
-      
+      setFeatureImage(reorderedImages[0]);
     };
       return (
            <div>
@@ -81,7 +82,9 @@ const Gallery = () => {
                   ref={provided.innerRef}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
-                  className= "gallery-image"
+                    className={`gallery-image ${selectedImages.includes(index) ? 'selected' : ''} ${
+                        image === featureImage ? 'featured' : ''
+                      }`}
                   >
                     <img src={image.url} alt={`Image Index: ${index}`} />
                       {/* For image selection */}
