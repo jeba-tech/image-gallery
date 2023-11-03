@@ -12,7 +12,7 @@ https://responsive-image-gallery-website.netlify.app/
 * Visual indicators of selected images using checkbox and highlited the image.
 * Multiple images for deletion has been implemented.
 * Implemented featured image sorting.The first image (from left to right) is considered the default feature image.
-
+* Ensured responsiveness for various screen sizes like mobile,tablet etc.
 
 ## Installation Instructions:
 

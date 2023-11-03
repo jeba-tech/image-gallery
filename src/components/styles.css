@@ -2,7 +2,7 @@
 /* Displaying images in a grid layout */
 .gallery-container {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr 268px; /* Four columns for the grid layout */
+      grid-template-columns: repeat(auto-fill, minmax(265px, 1fr)); /* Responsive grid layout */
       gap: 30px;
       padding: 20px;
       transition: all 0.3s ease-in-out; /* Transition for grid layout changes */
@@ -88,4 +88,21 @@
 .gallery-image:first-child {
       grid-column: span 2; /* First image spans two columns */
       grid-row: span 2; /* First image spans two rows */
+    }
+
+
+
+
+    /*  Responsiveness for various screen sizes using Media query  */
+@media screen and (max-width: 768px) {
+      .gallery-container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Column width for smaller screens */
+        gap: 15px;
+        padding: 10px;
+      }
+    
+      .gallery-image:first-child {
+        grid-column: span 1; /* First image for smaller screens */
+        grid-row: span 1;
+      }
     }
