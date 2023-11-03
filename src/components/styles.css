@@ -2,7 +2,7 @@
 /* Displaying images in a grid layout */
 .gallery-container {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr 307px; /* Four columns for the grid layout */
+      grid-template-columns: 1fr 1fr 1fr 1fr 268px; /* Four columns for the grid layout */
       gap: 30px;
       padding: 20px;
       transition: all 0.3s ease-in-out; /* Transition for grid layout changes */

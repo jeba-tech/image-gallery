@@ -1,6 +1,6 @@
 ## Project Documentation
 
-## Live Site: \
+## Live Site: 
 https://responsive-image-gallery-website.netlify.app/
 
 
@@ -8,7 +8,7 @@ https://responsive-image-gallery-website.netlify.app/
 ## Project Features:
 
 * Implemented a responsive grid layout and one image is displayed as the feature image.
-* Enabled drag-and-drop and reordering functionality for images.
+* Enabled drag-and-drop and reordering functionality using react-beautiful-dnd for images.
 * Visual indicators of selected images using checkbox and highlited the image.
 * Multiple images for deletion has been implemented.
 * Implemented featured image sorting.The first image (from left to right) is considered the default feature image.
